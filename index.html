@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Trường THPT Ngũ Hành Sơn</title>
+    <meta name="description" content="Trang chính thức — Trường THPT Ngũ Hành Sơn">
+    <meta name="author" content="THPT Ngũ Hành Sơn">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body class="bg-white text-slate-900 antialiased">
+    <header class="bg-white/80 backdrop-blur sticky top-4 mx-4 rounded-xl shadow-md z-30">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="#home" class="flex items-center gap-3">
+        <link rel="icon" href="assets/logo.jpg">
+                    <img src="assets/logo.jpg" alt="Logo Trường THPT Ngũ Hành Sơn" class="w-10 h-10 rounded-full object-cover" />
+          <div>
+            <div class="font-semibold">THPT Ngũ Hành Sơn</div>
+            <div class="text-xs text-slate-500">Hiền Tài Là Nguyên Khí Quốc Gia</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-sky-600">Giới thiệu</a>
+          <a href="#news" class="hover:text-sky-600">Tin tức</a>
+          <a href="#admissions" class="hover:text-sky-600">Tuyển sinh</a>
+          <a href="#contact" class="hover:text-sky-600">Liên hệ</a>
+        </nav>
+        <div class="md:hidden">
+          <button aria-label="Mở menu" id="mobile-menu-btn" class="p-2 rounded-md hover:bg-slate-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="md:hidden hidden px-6 pb-4">
+        <a href="#about" class="block py-2">Giới thiệu</a>
+        <a href="#news" class="block py-2">Tin tức</a>
+        <a href="#admissions" class="block py-2">Tuyển sinh</a>
+        <a href="#contact" class="block py-2">Liên hệ</a>
+      </div>
+    </header>
+
+    <main id="home" class="mt-10 mb-20">
+      <section class="max-w-6xl mx-auto px-6 grid gap-10 md:grid-cols-2 items-center">
+        <div class="space-y-6">
+          <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">Trường THPT Ngũ Hành Sơn</h1>
+          <div class="mt-2 text-lg md:text-xl">
+            <span id="hero-typing" aria-live="polite"></span>
+          </div>
+          <div class="flex gap-4">
+            <a href="#admissions" class="inline-block btn-primary text-white px-5 py-3 rounded-lg shadow hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-300">Tuyển sinh</a>
+            <a href="http://127.0.0.1:5500/news.html" class="inline-block border border-slate-200 px-5 py-3 rounded-lg hover:bg-slate-100 interactive-card">Xem tin tức</a>
+          </div>
+          <ul class="mt-4 text-sm text-slate-700 space-y-2">
+            <li>• Chương trình học chất lượng cao.</li>
+            <li>• Đội ngũ giáo viên giàu kinh nghiệm.</li>
+            <li>• Cơ sở vật chất hiện đại, nhiều câu lạc bộ và hoạt động ngoại khóa.</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <img src="assets/hero-small.jpg" data-full="assets/hero.jpg" alt="Ảnh minh họa Trường THPT Ngũ Hành Sơn" loading="lazy" class="w-full h-64 object-cover rounded-md bg-slate-100 lightbox-trigger" onerror="this.style.display='none'" />
+          <div class="mt-4 text-sm text-slate-500">Đội ngũ giáo viên</div>
+        </div>
+      </section>
+
+      <section id="gallery" class="max-w-6xl mx-auto px-6 mt-10">
+        <h2 class="text-2xl font-semibold">Thư viện ảnh</h2>
+        <p class="text-sm text-slate-600 mt-2">Một vài hình ảnh hoạt động của nhà trường.</p>
+        <div class="mt-4 grid grid-cols-2 md:grid-cols-3 gap-4">
+          <figure class="bg-white rounded-lg overflow-hidden">
+            <img src="assets/gallery1-small.jpg" data-full="assets/gallery1.jpg" data-gallery="school" alt="Ảnh hoạt động nhà trường 1" loading="lazy" class="w-full h-44 object-cover lightbox-trigger" />
+          </figure>
+          <figure class="bg-white rounded-lg overflow-hidden">
+            <img src="assets/gallery2-small.jpg" data-full="assets/gallery2.jpg" data-gallery="school" alt="Ảnh hoạt động nhà trường 2" loading="lazy" class="w-full h-44 object-cover lightbox-trigger" />
+          </figure>
+          <figure class="bg-white rounded-lg overflow-hidden">
+            <img src="assets/gallery3-small.jpg" data-full="assets/gallery3.jpg" data-gallery="school" alt="Ảnh hoạt động nhà trường 3" loading="lazy" class="w-full h-44 object-cover lightbox-trigger" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="about" class="max-w-6xl mx-auto px-6 mt-12">
+        <div class="bg-white rounded-xl shadow p-6">
+          <h2 class="text-2xl font-semibold">Giới thiệu</h2>
+          <p class="mt-3 text-slate-700">Trường THPT Ngũ Hành Sơn tự hào là một trong những trường dẫn đầu về chất lượng giáo dục tại khu vực. Chúng tôi chăm sóc học sinh toàn diện: học thuật, kỹ năng sống, thể thao và nghệ thuật.</p>
+          <div class="mt-6 grid md:grid-cols-3 gap-4">
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-semibold">Sứ mệnh</h3>
+              <p class="text-sm text-slate-600">Đào tạo công dân có tri thức, nhân cách và trách nhiệm xã hội.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-semibold">Tầm nhìn</h3>
+              <p class="text-sm text-slate-600">Trở thành trung tâm giáo dục uy tín, sáng tạo và hội nhập.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h3 class="font-semibold">Giá trị</h3>
+              <p class="text-sm text-slate-600">Tôn trọng, trách nhiệm, hợp tác và đổi mới.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="news" class="max-w-6xl mx-auto px-6 mt-8">
+        <h2 class="text-2xl font-semibold">Tin mới</h2>
+        <div id="home-posts" class="mt-4 grid md:grid-cols-3 gap-4">
+          <!-- Latest posts will be loaded here (top 3 newest) -->
+        </div>
+        <div class="mt-4">
+          <a href="news.html" class="text-sky-600 text-sm">Xem tất cả tin →</a>
+        </div>
+      </section>
+
+      <section id="admissions" class="max-w-6xl mx-auto px-6 mt-8">
+        <div class="bg-sky-50 border border-sky-100 rounded-xl p-6 flex flex-col md:flex-row items-center gap-6">
+          <div class="flex-1">
+            <h2 class="text-2xl font-semibold">Tuyển sinh</h2>
+            <p class="text-slate-600 mt-2">Thông tin tuyển sinh mới nhất, hồ sơ và lịch thi. Học sinh quan tâm vui lòng nộp hồ sơ trực tiếp hoặc liên hệ văn phòng tuyển sinh.</p>
+          </div>
+          <div class="flex gap-4">
+            <a href="#contact" class="inline-block bg-sky-600 text-white px-4 py-2 rounded-md">Liên hệ tuyển sinh</a>
+            <a href="#" class="inline-block border border-sky-600 text-sky-600 px-4 py-2 rounded-md">Tải hồ sơ</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="max-w-6xl mx-auto px-6 mt-8">
+        <div class="bg-white rounded-xl shadow p-6">
+          <h2 class="text-2xl font-semibold">Liên hệ</h2>
+          <div class="mt-4 grid md:grid-cols-2 gap-6">
+              <div>
+                <p class="text-sm text-slate-700 font-medium">Ban biên tập Trường THPT Ngũ Hành Sơn Đà Nẵng</p>
+                <p class="text-sm text-slate-700 mt-2">Địa chỉ: 24 Bà Bang Nhãn, Quận Ngũ Hành Sơn, Thành phố Đà Nẵng</p>
+                <p class="text-sm text-slate-700 mt-2">Điện thoại: <a href="tel:+842363950187" class="text-sky-600">(0236) 3950187</a></p>
+                <p class="text-sm text-slate-700 mt-2">Email: <a href="mailto:hoangthanhnau@gmail.com" class="text-sky-600">hoangthanhnau@gmail.com</a></p>
+              </div>
+            <form class="space-y-3" onsubmit="alert('Mẫu thử — gửi tới phòng tuyển sinh (demo)'); return false;">
+              <div>
+                <label class="block text-sm text-slate-700">Họ và tên</label>
+                <input required class="mt-1 w-full border rounded-md px-3 py-2" />
+              </div>
+              <div>
+                <label class="block text-sm text-slate-700">Email</label>
+                <input type="email" required class="mt-1 w-full border rounded-md px-3 py-2" />
+              </div>
+              <div>
+                <label class="block text-sm text-slate-700">Nội dung</label>
+                <textarea required class="mt-1 w-full border rounded-md px-3 py-2" rows="3"></textarea>
+              </div>
+              <div>
+                <button class="bg-sky-600 text-white px-4 py-2 rounded-md">Gửi</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer mt-12">
+      <div class="max-w-6xl mx-auto px-6 py-10">
+        <div class="footer-grid">
+          <div>
+            <a href="index.html" class="flex items-center gap-3">
+              <img src="assets/logo.jpg" alt="Logo" class="w-10 h-10 rounded-full object-cover" />
+              <div>
+                <div class="font-semibold">THPT Ngũ Hành Sơn</div>
+                <div class="text-xs muted">Hiền Tài Là Nguyên Khí Quốc Gia</div>
+              </div>
+            </a>
+            <p class="mt-4">Ban biên tập Trường THPT Ngũ Hành Sơn Đà Nẵng.</p>
+          </div>
+
+          <div>
+            <h3>Liên kết nhanh</h3>
+            <ul class="mt-3 space-y-2">
+              <li><a href="index.html#about">Giới thiệu</a></li>
+              <li><a href="news.html">Tin tức</a></li>
+              <li><a href="index.html#admissions">Tuyển sinh</a></li>
+              <li><a href="index.html#contact">Liên hệ</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Liên hệ</h3>
+            <ul class="mt-3 space-y-2">
+              <li class="footer-small">Địa chỉ: 24 Bà Bang Nhãn, Quận Ngũ Hành Sơn, Thành phố Đà Nẵng</li>
+              <li class="footer-small">Điện thoại: <a href="tel:+842363950187">(0236) 3950187</a></li>
+              <li class="footer-small">Email: <a href="mailto:hoangthanhnau@gmail.com">hoangthanhnau@gmail.com</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Kết nối</h3>
+            <p class="mt-3">Theo dõi nhà trường trên mạng xã hội.</p>
+            <div class="mt-3 flex gap-3">
+              <a href="https://www.facebook.com/doantruongnhs" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="p-2 rounded-md bg-sky-600 text-white w-9 h-9 flex items-center justify-center">f</a>
+              <a href="#" aria-label="YouTube" class="p-2 rounded-md bg-slate-700 text-white w-9 h-9 flex items-center justify-center">▶</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col md:flex-row md:justify-between items-center gap-4">
+          <div class="footer-small">© 2019 - Bản quyền thuộc về Trường THPT Ngũ Hành Sơn. Từ nguồn "Trường THPT Ngũ Hành Sơn"</div>
+          <div class="flex items-center gap-4">
+            <a href="#" id="footer-top-link" class="text-slate-600">Lên đầu trang</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="back-to-top" aria-label="Lên đầu trang" title="Lên đầu trang">↑</button>
+
+    <script>
+      // Mobile menu toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn && btn.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    </script>
+    <script src="assets/scripts.js"></script>
+    <script>
+      // Load top 3 newest posts for homepage
+      (async function(){
+        try{
+          const res = await fetch('posts/index.json', {cache:'no-store'});
+          if (!res.ok) return;
+          let posts = await res.json();
+          if (!Array.isArray(posts) || posts.length===0) return;
+          // parse date in format DD/MM/YYYY
+          function parseDMY(s){ const [d,m,y]=s.split('/').map(Number); return new Date(y,m-1,d); }
+          posts = posts.slice().sort((a,b)=> parseDMY(b.date) - parseDMY(a.date));
+          const top = posts.slice(0,3);
+          const container = document.getElementById('home-posts');
+          container.innerHTML = top.map(p=>`
+            <article class="bg-white p-4 rounded-lg shadow">
+              <h3 class="font-semibold">${p.title}</h3>
+              <div class="text-xs text-slate-500 mt-1">${p.date} • ${p.category||'Tin tức'}</div>
+              <p class="text-sm text-slate-600 mt-2">${p.excerpt}</p>
+              <a href="${p.url}" class="text-sky-600 text-sm mt-3 inline-block">Đọc thêm →</a>
+            </article>
+          `).join('');
+        }catch(e){ console.warn('home posts load failed', e); }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Chương trình Trao học bổng",
+    "date": "05/12/2025",
+    "category": "Thông báo",
+    "excerpt": "Nhà trường và đối tác trao học bổng cho học sinh xuất sắc có hoàn cảnh khó khăn.",
+    "url": "posts/article-3.html"
+  },
+  {
+    "title": "Hội thi Học sinh Nghiên cứu Khoa học",
+    "date": "20/11/2025",
+    "category": "Sự kiện",
+    "excerpt": "Hội thi thu hút nhiều dự án sáng tạo từ các khối lớp, với đề tài đa dạng về môi trường và công nghệ.",
+    "url": "posts/article-2.html"
+  },
+  {
+    "title": "Gặp mặt Phụ huynh học sinh",
+    "date": "15/09/2025",
+    "category": "Sự kiện",
+    "excerpt": "Buổi gặp mặt trình bày kế hoạch học tập và hoạt động của năm học mới.",
+    "url": "posts/article-4.html"
+  },
+  {
+    "title": "Khai giảng năm học mới 2025",
+    "date": "01/09/2025",
+    "category": "Tin nội bộ",
+    "excerpt": "Lễ khai giảng diễn ra trong không khí trang trọng với sự tham gia của toàn thể giáo viên và học sinh.",
+    "url": "posts/sample-article.html"
+  }
+]

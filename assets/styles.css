@@ -1,0 +1,291 @@
+:root{
+  --primary:#0ea5e9; /* sky-500 */
+  --primary-600:#0284c7; /* sky-600 */
+  --bg:#ffffff;
+  --muted:#0f172a; /* slate-900 */
+  --muted-600:#475569; /* slate-600 */
+  /* Neutral palette */
+  --neutral-50:#f9fafb;
+  --neutral-100:#f3f4f6;
+  --neutral-200:#e5e7eb;
+  --neutral-300:#d1d5db;
+  --neutral-700:#374151;
+}
+
+/* Background highlights: decorative gradients and diagonal stripe (increased visibility) */
+:root{ --bg-accent-a: rgba(14,165,233,0.11); --bg-accent-b: rgba(2,132,199,0.08); }
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: -12%;
+  /* Larger, more visible radial accents */
+  background-image: radial-gradient(circle at 6% 10%, var(--bg-accent-a) 0%, transparent 38%), radial-gradient(circle at 88% 82%, var(--bg-accent-b) 0%, transparent 42%);
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(8px);
+  opacity: 0.98;
+  /* gentle slow drift */
+  transform: translate3d(0,0,0);
+  animation: bg-drift 30s linear infinite alternate;
+}
+
+body::after{
+  content: "";
+  position: fixed;
+  left: -24%;
+  top: 36%;
+  width: 148%;
+  height: 420px;
+  transform: rotate(-7deg);
+  /* Slightly stronger, but still subtle stripe */
+  background: linear-gradient(90deg, rgba(14,165,233,0.04), rgba(2,132,199,0.06));
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  /* slow lateral float for subtle motion */
+  animation: stripe-drift 40s ease-in-out infinite;
+}
+
+/* add a faint pattern layer for depth */
+body::marker{ display:none; }
+
+/* Ensure main layers sit above decorative background */
+header, main, footer, .lightbox-overlay{ position: relative; z-index: 10; }
+
+@media (max-width: 640px){
+  body::after{ height: 300px; left: -30%; }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px){
+  header { padding: 0; }
+  header .max-w-6xl { padding-left: 12px; padding-right: 12px; }
+  header .font-semibold { font-size: 1rem; }
+  /* Larger touch targets */
+  button, .btn, .btn-primary, a[class*="border"] { min-height: 44px; padding-top: .6rem; padding-bottom: .6rem; }
+  /* Mobile menu styling */
+  #mobile-menu { background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96)); border-top: 1px solid var(--neutral-200); padding-top: 0.5rem; }
+  #mobile-menu a { display:block; padding: .75rem 0; font-size: 1rem; }
+  /* Gallery thumbnails: slightly taller for touch */
+  .w-full.h-44 { height: 160px; }
+  /* Increase spacing and readable font sizes */
+  h1 { font-size: 1.6rem; }
+  .text-sm { font-size: .95rem; }
+}
+
+/* Background animation keyframes */
+@keyframes bg-drift{
+  0%{ transform: translate3d(-12px, -6px, 0) scale(1); }
+  50%{ transform: translate3d(8px, 6px, 0) scale(1.02); }
+  100%{ transform: translate3d(-8px, 12px, 0) scale(1); }
+}
+
+@keyframes stripe-drift{
+  0%{ transform: rotate(-7deg) translate3d(-6px,0,0); }
+  50%{ transform: rotate(-6.2deg) translate3d(6px,0,0); }
+  100%{ transform: rotate(-7deg) translate3d(-6px,0,0); }
+}
+
+/* Respect reduced motion: disable background animations */
+@media (prefers-reduced-motion: reduce){
+  body::before, body::after{ animation: none !important; }
+}
+
+/* Base background and text */
+body{
+  background-color: var(--bg) !important;
+  color: var(--muted);
+}
+
+/* Links and buttons accent */
+a, a:visited{
+  color: var(--primary);
+}
+a:hover{ color: var(--primary-600); }
+
+/* Header subtle blue border */
+header{ border: 1px solid rgba(14,165,233,0.08); }
+
+/* Footer accent */
+footer{ background: transparent; }
+
+/* Card background (keeps white look) */
+.card-bg{ background: #fff; }
+
+/* Improve contrast for muted text */
+.muted{ color: var(--muted-600); }
+
+/* Ensure primary buttons use our blue when Tailwind class missing */
+.btn-primary{ background-color: var(--primary); color: #fff; }
+.btn-primary:hover{ background-color: var(--primary-600); }
+
+/* Force white text on .btn-primary as a fallback (higher specificity) */
+:where(.btn-primary){ color: #fff !important; }
+
+/* Force white text for elements using Tailwind's bg-sky-600 utility (fallback) */
+:where(.bg-sky-600){ color: #fff !important; }
+
+/* Typing animation */
+.typing {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+  font-weight: 600;
+  color: var(--primary-600);
+  display: inline-block;
+}
+.typing .cursor{
+  display:inline-block;
+  width:10px;
+  height:1.1em;
+  background:var(--primary-600);
+  margin-left:8px;
+  animation: blink 1s steps(2,start) infinite;
+  vertical-align:middle;
+}
+@keyframes blink{ to{ opacity:0; } }
+
+/* Reveal on scroll */
+.reveal{ opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease; }
+.reveal.active{ opacity:1; transform:none; }
+
+/* Interactive card hover */
+.interactive-card{ transition:transform .18s ease, box-shadow .18s ease; }
+.interactive-card:hover{ transform:translateY(-6px); box-shadow:0 8px 24px rgba(2,132,199,0.12); }
+
+/* subtle pulsing CTA */
+.cta-pulse{ animation: pulse-accent 3s ease-in-out infinite; }
+@keyframes pulse-accent{ 0%{ box-shadow:0 0 0 0 rgba(14,165,233,0.0);} 70%{ box-shadow:0 0 0 10px rgba(14,165,233,0.04);} 100%{ box-shadow:0 0 0 0 rgba(14,165,233,0.0);} }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .typing .cursor{ animation:none; }
+  .reveal, .interactive-card, .cta-pulse{ transition:none; animation:none; }
+}
+
+/* Lightbox styles (minimal) */
+.lightbox-overlay{
+  position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(2,6,23,0.0); z-index:60; padding:24px; opacity:0; transform:scale(.98); transition:opacity .28s ease, transform .28s cubic-bezier(.22,.9,.2,1);
+}
+.lightbox-overlay.open{ background:rgba(2,6,23,0.7); opacity:1; transform:scale(1); }
+.lightbox-overlay img{ max-width:100%; max-height:100%; border-radius:8px; box-shadow:0 20px 40px rgba(2,6,23,0.6); opacity:0; transform:scale(.98); transition:opacity .26s ease, transform .26s cubic-bezier(.22,.9,.2,1); }
+.lightbox-overlay.open img{ opacity:1; transform:scale(1); }
+.lightbox-close{ position:absolute; top:18px; right:18px; background:rgba(255,255,255,0.06); color:#fff; border-radius:999px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+.lightbox-trigger{ cursor:pointer; }
+
+/* Gallery nav buttons */
+.lightbox-nav{ position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none; }
+.lightbox-nav button{ pointer-events:auto; background:rgba(0,0,0,0.36); border:0; color:#fff; width:44px; height:44px; border-radius:999px; display:flex; align-items:center; justify-content:center; margin:0 12px; }
+
+@media (prefers-reduced-motion: reduce){
+  .lightbox-overlay, .lightbox-overlay img{ transition:none; }
+}
+
+/* Footer styles */
+.site-footer{ border-top:1px solid var(--neutral-200); background:var(--bg); }
+.site-footer .footer-grid{ display:grid; grid-template-columns:repeat(1,1fr); gap:1rem; }
+@media(min-width:768px){ .site-footer .footer-grid{ grid-template-columns: 2fr 1fr 1fr 1fr; } }
+.site-footer h3{ font-weight:600; color:var(--muted); }
+.site-footer p, .site-footer a, .site-footer li{ color:var(--muted-600); }
+.site-footer a:hover{ color:var(--primary); }
+.footer-small{ font-size:0.875rem; color:var(--muted-600); }
+
+/* Back to top button */
+#back-to-top{ position:fixed; right:18px; bottom:18px; width:44px; height:44px; border-radius:999px; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(2,132,199,0.18); border:0; cursor:pointer; transform:translateY(8px); opacity:0; transition:opacity .25s ease, transform .25s ease; z-index:60; }
+#back-to-top.visible{ opacity:1; transform:none; }
+
+/* Interaction helpers: hover + focus + transitions for buttons, links and controls */
+:root{ --interaction-duration: .18s; --interaction-ease: cubic-bezier(.22,.9,.2,1); }
+
+button, .btn, .btn-primary, .bg-sky-600, a.button {
+  transition: transform var(--interaction-duration) var(--interaction-ease), box-shadow var(--interaction-duration) var(--interaction-ease), background-color .12s ease, color .12s ease;
+  will-change: transform;
+}
+
+/* Lift and subtle scale on hover */
+button:hover, .btn:hover, .btn-primary:hover, .bg-sky-600:hover, a.button:hover{
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(2,132,199,0.12);
+}
+
+button:active, .btn:active, .btn-primary:active{ transform: translateY(-1px) scale(.995); }
+
+/* Focus styles for keyboard users */
+button:focus-visible, .btn:focus-visible, .btn-primary:focus-visible, a:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(2,132,199,0.12), 0 0 0 1px var(--primary-600);
+  border-radius: 8px;
+}
+
+/* Navigation links slight lift */
+header nav a, nav a {
+  transition: transform var(--interaction-duration) var(--interaction-ease), color .12s ease;
+}
+header nav a:hover, nav a:hover{ transform: translateY(-2px); color:var(--primary-600); }
+
+/* Bordered outline links (button-style) */
+a[class*="border"] {
+  transition: transform var(--interaction-duration) var(--interaction-ease), background-color .12s ease, color .12s ease, border-color .12s ease;
+}
+a[class*="border"]:hover {
+  transform: translateY(-4px) scale(1.02);
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Small hover for footer social icons and close/nav buttons */
+.site-footer a[aria-label], .lightbox-close, .lightbox-nav button{
+  transition: transform var(--interaction-duration) var(--interaction-ease), background-color .12s ease;
+}
+.site-footer a[aria-label]:hover, .lightbox-close:hover, .lightbox-nav button:hover{ transform: translateY(-3px) scale(1.03); }
+
+/* Ripple effect on click */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: ripple-burst .6s ease-out;
+  pointer-events: none;
+}
+@keyframes ripple-burst {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Respect reduced motion for interactions */
+@media (prefers-reduced-motion: reduce){
+  button, .btn, .btn-primary, .bg-sky-600, a.button, header nav a, .site-footer a[aria-label], .lightbox-close, .lightbox-nav button{ transition: none; transform: none; box-shadow: none; }
+  .ripple { animation: none; }
+}
+
+/* Mobile menu fallback styles: ensures menu is visible when JS toggles .show
+   This is intentionally minimal to avoid interfering with existing layout. */
+@media (max-width: 640px) {
+  header.site-header { position: relative; }
+  /* Rounded mobile menu with slight inset and overflow hidden for clean corners */
+  #mobile-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 8px;
+    right: 8px;
+    background: var(--bg);
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.14);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  /* show state (fallback) */
+  #mobile-menu.show { display: block; }
+  /* touch-friendly links inside rounded menu */
+  #mobile-menu a { display: block; padding: 12px 16px; border-bottom: 1px solid rgba(0,0,0,0.04); }
+}
+
+
